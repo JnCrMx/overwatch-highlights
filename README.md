@@ -1,7 +1,8 @@
 # Overwatch highlight reverse engineering
 
 If you are just looking for the documentation,
-have a look at [this](docs/index.rst) document.
+have a look at [this](docs/index.rst) document or
+at [Read the Docs](https://overwatch-highlights.readthedocs.io/en/latest/).
 
 This repository is taken from a larger project of mine
 (which I sadly can't publish yet),
@@ -10,7 +11,7 @@ so there might be some redundant parts
 
 ## TODO
 
-- [ ] Add GitHub Page with (automatically) built Sphinx documentation
+- [x] Add Read The Docs page with (automatically) built Sphinx documentation
 - [ ] Find values for all Maps
 - [ ] Find values for all Heros
 - [ ] Add enum for Skins
