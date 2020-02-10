@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+    
+ 	id "kr.motd.sphinx" version "2.5.0"
+}
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.apache.logging.log4j:log4j-api:2.11.2'
+
+    implementation 'org.jcodec:jcodec:0.2.3'
+    implementation 'org.jcodec:jcodec-javase:0.2.3'
+
+    implementation 'org.bytedeco:javacv-platform:1.5.1'
+}
+
+sphinx {
+  sourceDirectory = "${projectDir}/docs"
+}
