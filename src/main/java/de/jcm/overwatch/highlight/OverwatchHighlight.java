@@ -13,8 +13,6 @@ import java.nio.file.StandardOpenOption;
 import java.util.Base64;
 import java.util.Base64.Decoder;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.bytedeco.javacv.FFmpegFrameGrabber;
 import org.bytedeco.javacv.Frame;
 import org.bytedeco.javacv.Java2DFrameConverter;
@@ -26,11 +24,13 @@ import org.jcodec.containers.mp4.boxes.MetaBox;
 import org.jcodec.containers.mp4.boxes.MovieBox;
 import org.jcodec.containers.mp4.boxes.NodeBox;
 import org.jcodec.containers.mp4.boxes.UdtaBox;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class OverwatchHighlight
 {
 	private static final Decoder decoder = Base64.getDecoder();
-	private static Logger logger = LogManager.getLogger(OverwatchHighlight.class.getSimpleName());
+	private static Logger logger = LoggerFactory.getLogger(OverwatchHighlight.class);
 
 	private File file;
 
