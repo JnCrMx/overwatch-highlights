@@ -1,7 +1,12 @@
 # Overwatch highlight reverse engineering
 
-If you are just looking for the documentation, 
+If you are just looking for the documentation,
 have a look at [this](docs/index.rst) document.
+
+This repository is taken from a larger project of mine
+(which I sadly can't publish yet),
+so there might be some redundant parts
+(like thumbnail extraction).
 
 ## TODO
 

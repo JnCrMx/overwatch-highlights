@@ -67,7 +67,7 @@ Possible values for fields shown in the table above are defined in the following
    On first sight it looked like the hero IDs would be ascending by the time the heros where added.
    But that doesn't seem to be true for every hero:
    e.g. Tracer is first hero according to Overwatch Wiki, but has ID ``2``.
-   Also Orisa(``) was added before Doomfist, but has higher ID.
+   Also Orisa(``318``) was added before Doomfist(``303``), but has higher ID.
 
 .. TIP::
    The Java enumerations contain more information than just the id.
