@@ -41,12 +41,13 @@ public class OverwatchHighlight
 	
 	private Image thumbnail;
 
-	public OverwatchHighlight(File file)
+	public OverwatchHighlight(File file) throws IOException
 	{
 		this.file = file;
+		readInfo();
 	}
 
-	public void readInfo() throws IOException
+	private void readInfo() throws IOException
 	{
 		FileChannel channel = FileChannel.open(Path.of(file.toURI()), StandardOpenOption.READ);
 
