@@ -10,7 +10,7 @@ so there might be some redundant parts
 
 ## TODO
 
-- [ ] Add GitHub Page with (automatically) built Sphinx documentation.
+- [ ] Add GitHub Page with (automatically) built Sphinx documentation
 - [ ] Find values for all Maps
 - [ ] Find values for all Heros
 - [ ] Add enum for Skins
