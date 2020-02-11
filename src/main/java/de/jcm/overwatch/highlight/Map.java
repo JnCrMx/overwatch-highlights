@@ -8,6 +8,7 @@ public enum Map
 	ADLERSBRUNN				( 1737, "Adlersbrunn",				MapType.SEASONAL_BRAWL		),
 	BLIZZARD_WORLD			( 1886, "Blizzard World",			MapType.HYBRID				),
 	BLIZZARD_WORLD_WINTER	( 2651, BLIZZARD_WORLD,				MapVariant.WINTER_WONDERLAND),
+	BUSAN					( 2018, "Busan",					MapType.CONTROL				),
 	DORADO					(  707, "Dorado",					MapType.ESCORT				),
 	EICHENWALDE				( 1677,	"Eichenwalde",				MapType.HYBRID				),
 	EICHENWALDE_HALLOWEEN	( 2036, EICHENWALDE,				MapVariant.HALLOWEEN_TERROR	),
