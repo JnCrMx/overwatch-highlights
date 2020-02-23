@@ -11,6 +11,8 @@ import java.util.Objects;
 import java.util.prefs.BackingStoreException;
 import java.util.stream.Stream;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 public class HighlightTest
 {
     @ParameterizedTest
@@ -18,10 +20,15 @@ public class HighlightTest
     void test(File highlightFile) throws IOException
     {
         OverwatchHighlight highlight = new OverwatchHighlight(highlightFile);
+
         System.out.println("highlight.getType() = " + highlight.getType());
         System.out.println("highlight.getTitle() = " + highlight.getTitle());
         System.out.println("highlight.getHero() = " + highlight.getHero());
         System.out.println("highlight.getMap() = " + highlight.getMap());
+
+        assertNotNull(highlight.getType(), "highlight has unknown type");
+        assertNotNull(highlight.getHero(), "highlight has unknown hero");
+        assertNotNull(highlight.getMap(), "highlight has unknown map");
     }
 
     static Stream<File> findHighlights() throws IOException, BackingStoreException
