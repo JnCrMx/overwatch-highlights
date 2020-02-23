@@ -6,7 +6,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Objects;
 import java.util.prefs.BackingStoreException;
@@ -27,7 +26,7 @@ public class HighlightTest
 
     static Stream<File> findHighlights() throws IOException, BackingStoreException
     {
-        File directory = new File(System.getProperty("user.home"), "Documents\\Overwatch\\videos\\overwatch\\");;
+        File directory = new File(System.getProperty("user.home"), "Documents\\Overwatch\\videos\\overwatch\\");
 
         File overwatchConfig =
                 new File(System.getProperty("user.home"), "Documents\\Overwatch\\Settings\\Settings_v0.ini");

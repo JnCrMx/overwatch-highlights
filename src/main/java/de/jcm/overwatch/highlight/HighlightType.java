@@ -11,7 +11,7 @@ public enum HighlightType
 	CAPTURED_POTG	(0x0A, true , true )
 	;
 
-	private static HashMap<Integer, HighlightType> byId = new HashMap<>();
+	private static final HashMap<Integer, HighlightType> byId = new HashMap<>();
 	static
 	{
 		Arrays.stream(HighlightType.values()).forEach(hero->byId.put(hero.getId(), hero));

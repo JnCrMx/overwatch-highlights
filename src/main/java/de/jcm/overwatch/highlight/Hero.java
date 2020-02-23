@@ -44,7 +44,7 @@ public enum Hero
 		SUPPORT
 	}
 
-	private static HashMap<Integer, Hero> byId = new HashMap<>();
+	private static final HashMap<Integer, Hero> byId = new HashMap<>();
 	static
 	{
 		Arrays.stream(Hero.values()).forEach(hero->byId.put(hero.getId(), hero));

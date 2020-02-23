@@ -12,9 +12,9 @@ public enum Map
 	DORADO					(  707, "Dorado",					MapType.ESCORT				),
 	EICHENWALDE				( 1677,	"Eichenwalde",				MapType.HYBRID				),
 	EICHENWALDE_HALLOWEEN	( 2036, EICHENWALDE,				MapVariant.HALLOWEEN_TERROR	),
-	HAVANA					( 2628, "Havana",					MapType.ESCORT				),
 	HANAMURA				(  357, "Hanamura",					MapType.ASSAULT				),
 	HANAMURA_WINTER			( 1717,	HANAMURA,					MapVariant.WINTER_WONDERLAND),
+	HAVANA					( 2628, "Havana",					MapType.ESCORT				),
 	HOLLYWOOD				(  687, "Hollywood",				MapType.HYBRID				),
 	HOLLYWOOD_HALLOWEEN		( 1707,	HOLLYWOOD,					MapVariant.HALLOWEEN_TERROR	),
 	HORIZON_LUNAR_COLONY	( 1747, "Horizon Lunar Colony",		MapType.ASSAULT				),
@@ -22,16 +22,16 @@ public enum Map
 	JUNKERTOWN				( 1878, "Junkertown",				MapType.ESCORT				),
 	KINGS_ROW				(  212, "King's Row",				MapType.HYBRID				),
 	KINGS_ROW_WINTER		( 1713, KINGS_ROW,					MapVariant.WINTER_WONDERLAND),
-	NEPAL					( 1207, "Nepal",					MapType.CONTROL				),
-	OASIS					( 1694, "Oasis",					MapType.CONTROL				),
-	PARIS					( 2193, "Paris",					MapType.ASSAULT				),
-	ROUTE_66				( 1467, "Route 66",					MapType.ESCORT				),
-	VOLSKAYA_INDUSTRIES		(  475, "Volskaya Industries",		MapType.ASSAULT				),
 	LIJIANG_TOWER			( 1634, "Lijiang Tower",			MapType.CONTROL				),
 	LIJIANG_TOWER_NEW_YEAR	( 1719, LIJIANG_TOWER,				MapVariant.LUNAR_NEW_YEAR	),
+	NEPAL					( 1207, "Nepal",					MapType.CONTROL				),
 	NUMBANI					( 1873, "Numbani",					MapType.HYBRID				),
+	OASIS					( 1694, "Oasis",					MapType.CONTROL				),
+	PARIS					( 2193, "Paris",					MapType.ASSAULT				),
 	RIALTO					( 2161, "Rialto",					MapType.ESCORT				),
+	ROUTE_66				( 1467, "Route 66",					MapType.ESCORT				),
 	TEMPLE_OF_ANUBIS		(   91, "Temple of Anubis",			MapType.ASSAULT				),
+	VOLSKAYA_INDUSTRIES		(  475, "Volskaya Industries",		MapType.ASSAULT				),
 	WATCHPOINT_GIBRALTAR	(  388, "Watchpoint: Gibraltar",	MapType.ESCORT				)
 	;
 
@@ -42,7 +42,7 @@ public enum Map
 		LUNAR_NEW_YEAR		("Lunar New Year"	)
 		;
 
-		private String name;
+		private final String name;
 
 		MapVariant(String name)
 		{
@@ -75,7 +75,7 @@ public enum Map
 		SEASONAL_BRAWL	("Seasonal Brawl"	)
 		;
 
-		private String name;
+		private final String name;
 
 		MapType(String name)
 		{
@@ -94,7 +94,7 @@ public enum Map
 		}
 	}
 
-	private static HashMap<Integer, Map> byId = new HashMap<>();
+	private static final HashMap<Integer, Map> byId = new HashMap<>();
 	static
 	{
 		Arrays.stream(Map.values()).forEach(map->byId.put(map.getId(), map));
@@ -112,7 +112,7 @@ public enum Map
 
 	private Map supermap;
 	private MapVariant variant;
-	private Map[] submaps = new Map[MapVariant.values().length];
+	private final Map[] submaps = new Map[MapVariant.values().length];
 
 	Map(int id, String name, MapType type)
 	{

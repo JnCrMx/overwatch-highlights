@@ -16,7 +16,6 @@ import java.util.Base64.Decoder;
 import org.bytedeco.javacv.FFmpegFrameGrabber;
 import org.bytedeco.javacv.Frame;
 import org.bytedeco.javacv.Java2DFrameConverter;
-import org.jcodec.api.JCodecException;
 import org.jcodec.containers.mp4.MP4Util;
 import org.jcodec.containers.mp4.boxes.DataBox;
 import org.jcodec.containers.mp4.boxes.IListBox;
@@ -30,9 +29,9 @@ import org.slf4j.LoggerFactory;
 public class OverwatchHighlight
 {
 	private static final Decoder decoder = Base64.getDecoder();
-	private static Logger logger = LoggerFactory.getLogger(OverwatchHighlight.class);
+	private static final Logger logger = LoggerFactory.getLogger(OverwatchHighlight.class);
 
-	private File file;
+	private final File file;
 
 	private String title;
 	private Hero hero;
@@ -140,9 +139,8 @@ public class OverwatchHighlight
 		return new String(data.getData(), StandardCharsets.UTF_8);
 	}
 	
-	private Image extractThumbnail(int width, int height) throws IOException, JCodecException
+	private Image extractThumbnail(int width, int height)
 	{
-		BufferedImage bufferedImage = null;
 		try
 		{
 	        FFmpegFrameGrabber frameGrabber = new FFmpegFrameGrabber(file);
@@ -156,16 +154,16 @@ public class OverwatchHighlight
 	        
 	        Frame grabKeyFrame = frameGrabber.grabImage();
 	        Java2DFrameConverter java2DFrameConverter = new Java2DFrameConverter();
-	        bufferedImage = java2DFrameConverter.convert(grabKeyFrame);
+	        BufferedImage bufferedImage = java2DFrameConverter.convert(grabKeyFrame);
 	        frameGrabber.stop();
 	        frameGrabber.close();
+
+			return bufferedImage;
 	    }
 		catch (Exception e)
 		{
 	        throw new RuntimeException(e);
 	    }
-		
-		return bufferedImage;
 	}
 
 	public Hero getHero()
