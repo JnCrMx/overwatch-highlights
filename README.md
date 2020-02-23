@@ -13,7 +13,7 @@ so there might be some redundant parts
 
 - [x] Add Read The Docs page with (automatically) built Sphinx documentation
 - [ ] Find values for all Maps
-- [ ] Find values for all Heros
+- [x] Find values for all Heros
 - [ ] Add enum for Skins
 - [ ] Find values for all Skins (oof)
 
