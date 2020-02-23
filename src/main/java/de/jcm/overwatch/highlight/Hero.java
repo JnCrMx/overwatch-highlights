@@ -25,6 +25,7 @@ public enum Hero
 	REAPER			(   2, "Reaper"			, HeroClass.DAMAGE	),
 	REINHARDT		(   7, "Reinhardt"		, HeroClass.TANK	),
 	ROADHOG			(  64, "Roadhog"		, HeroClass.TANK	),
+	SIGMA			( 571, "Sigma"			, HeroClass.TANK	),
 	SOLDIER_76		( 110, "Soldier: 76"	, HeroClass.DAMAGE	),
 	SOMBRA			( 302, "Sombra"			, HeroClass.DAMAGE	),
 	SYMMETRA		(  22, "Symmetra"		, HeroClass.DAMAGE	),
