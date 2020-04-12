@@ -12,6 +12,7 @@ public enum Hero
 	BRIGITTE		( 405, "Brigitte"		, HeroClass.SUPPORT	),
 	D_VA			( 122, "D.Va"			, HeroClass.TANK	),
 	DOOMFIST		( 303, "Doomfist"		, HeroClass.DAMAGE	),
+	ECHO            ( 518, "Echo"           , HeroClass.DAMAGE  ),
 	GENJI			(  41, "Genji"			, HeroClass.DAMAGE	),
 	HANZO			(   5, "Hanzo"			, HeroClass.DAMAGE	),
 	JUNKRAT			( 101, "Junkrat"		, HeroClass.DAMAGE	),
