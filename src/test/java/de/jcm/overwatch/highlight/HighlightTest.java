@@ -1,5 +1,6 @@
 package de.jcm.overwatch.highlight;
 
+import org.ini4j.Config;
 import org.ini4j.IniPreferences;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -39,11 +40,13 @@ public class HighlightTest
                 new File(System.getProperty("user.home"), "Documents\\Overwatch\\Settings\\Settings_v0.ini");
         if(overwatchConfig.exists())
         {
+            Config.getGlobal().setEscape(false);
             IniPreferences iniPreferences = new IniPreferences(new FileInputStream(overwatchConfig));
             if(iniPreferences.nodeExists("MovieExport.1"))
             {
                 directory = new File(iniPreferences.node("MovieExport.1").get("VideoPath",
-                        System.getProperty("user.home")+"\\Documents\\Overwatch\\videos\\overwatch\\"));
+                        System.getProperty("user.home")+"\\Documents\\Overwatch\\videos\\overwatch\\")
+                                                   .replace("\"", ""));
             }
         }
 
