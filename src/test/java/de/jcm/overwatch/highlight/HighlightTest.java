@@ -50,6 +50,9 @@ public class HighlightTest
             }
         }
 
+        if(!directory.exists())
+            return Stream.empty();
+
         return Stream.of(Objects.requireNonNull(directory.listFiles((f, s) -> s.endsWith(".mp4"))));
     }
 }
