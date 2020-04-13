@@ -2,6 +2,8 @@ package de.jcm.overwatch.highlight;
 
 import org.ini4j.Config;
 import org.ini4j.IniPreferences;
+import org.junit.jupiter.api.Assumptions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
@@ -16,6 +18,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class HighlightTest
 {
+    @BeforeAll
+    static void before() throws IOException, BackingStoreException
+    {
+        Assumptions.assumeTrue(findHighlights().count()>0, "No highlights found!");
+    }
+
     @ParameterizedTest
     @MethodSource(value = "findHighlights")
     void test(File highlightFile) throws IOException
