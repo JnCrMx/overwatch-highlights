@@ -14,7 +14,7 @@ so there might be some redundant parts
 - [x] Add Read The Docs page with (automatically) built Sphinx documentation
 - [ ] Find values for all Maps
 - [x] Find values for all Heros
-- [ ] Add enum for Skins
+- [x] Add enum for Skins
 - [ ] Find values for all Skins (oof)
 
 ## Questions
@@ -24,5 +24,6 @@ so there might be some redundant parts
 - [ ] Is the player name stored anywhere?
 - [ ] Is it possible to distinguish own highlights from other's.
 - [ ] Is there any structure behind the Hero IDs?
+- [ ] Is there any structure behind the Skin IDs?
 
 I'll note down my thoughts about these questions in a ``wip/``-directory soon.
