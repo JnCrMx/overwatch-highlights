@@ -56,7 +56,7 @@ Possible values for fields shown in the table above are defined in the following
 +-------+----------------------------------------------+
 | Type  | ``de.jcm.overwatch.highlight.HighlightType`` |
 +-------+----------------------------------------------+
-| Skin  | Values for skins are not discovered yet.     |
+| Skin  | ``de.jcm.overwatch.highlight.Skin``          |
 +-------+----------------------------------------------+
 
 .. WARNING::
