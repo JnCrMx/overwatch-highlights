@@ -34,10 +34,17 @@ public class HighlightTest
         System.out.println("highlight.getTitle() = " + highlight.getTitle());
         System.out.println("highlight.getHero() = " + highlight.getHero());
         System.out.println("highlight.getMap() = " + highlight.getMap());
+        System.out.println("highlight.getSkin() = " + highlight.getSkin());
 
         assertNotNull(highlight.getType(), "highlight has unknown type");
         assertNotNull(highlight.getHero(), "highlight has unknown hero");
         assertNotNull(highlight.getMap(), "highlight has unknown map");
+        assertNotNull(highlight.getSkin(), "highlight has unknown skin");
+
+        if(highlight.getHero() != null && highlight.getSkin() != null)
+        {
+            assertEquals(highlight.getHero(), highlight.getSkin().getHero(), "hero and hero of skin do not match");
+        }
     }
 
     static Stream<File> findHighlights() throws IOException, BackingStoreException

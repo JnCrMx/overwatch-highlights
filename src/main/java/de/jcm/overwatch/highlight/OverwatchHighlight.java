@@ -37,6 +37,7 @@ public class OverwatchHighlight
 	private Hero hero;
 	private Map map;
 	private HighlightType type;
+	private Skin skin;
 	
 	private Image thumbnail;
 
@@ -70,6 +71,7 @@ public class OverwatchHighlight
 
 		int heroId 	= Short.toUnsignedInt	(info.getShort	(0x08));
 		int mapId 	= Short.toUnsignedInt	(info.getShort	(0x00));
+		int skinId  = Short.toUnsignedInt   (info.getShort  (0x10));
 		int typeNum	= Byte.toUnsignedInt	(info.get		(0x28));
 
 		hero = Hero.getHeroById(heroId);
@@ -91,6 +93,13 @@ public class OverwatchHighlight
 		{
 			logger.warn("Unknown type with id "+typeNum+" in file "+file.getAbsolutePath());
 			logger.info("Please report this and the actual type to the developer in order to improve the collected data.");
+		}
+
+		skin = Skin.getSkinById(skinId);
+		if(skin==null)
+		{
+			logger.warn("Unknown skin with id "+skinId+" in file "+file.getAbsolutePath());
+			logger.info("Please report this and the actual skin to the developer in order to improve the collected data.");
 		}
 		
 		channel.close();
@@ -179,5 +188,10 @@ public class OverwatchHighlight
 	public HighlightType getType()
 	{
 		return type;
+	}
+
+	public Skin getSkin()
+	{
+		return skin;
 	}
 }
