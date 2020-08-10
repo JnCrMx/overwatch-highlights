@@ -1,7 +1,10 @@
 package de.jcm.overwatch.highlight;
 
-import java.awt.Image;
-import java.awt.image.BufferedImage;
+import org.jcodec.containers.mp4.MP4Util;
+import org.jcodec.containers.mp4.boxes.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -12,19 +15,6 @@ import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.util.Base64;
 import java.util.Base64.Decoder;
-
-import org.bytedeco.javacv.FFmpegFrameGrabber;
-import org.bytedeco.javacv.Frame;
-import org.bytedeco.javacv.Java2DFrameConverter;
-import org.jcodec.containers.mp4.MP4Util;
-import org.jcodec.containers.mp4.boxes.DataBox;
-import org.jcodec.containers.mp4.boxes.IListBox;
-import org.jcodec.containers.mp4.boxes.MetaBox;
-import org.jcodec.containers.mp4.boxes.MovieBox;
-import org.jcodec.containers.mp4.boxes.NodeBox;
-import org.jcodec.containers.mp4.boxes.UdtaBox;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class OverwatchHighlight
 {
@@ -38,8 +28,6 @@ public class OverwatchHighlight
 	private Map map;
 	private HighlightType type;
 	private Skin skin;
-	
-	private Image thumbnail;
 
 	public OverwatchHighlight(File file) throws IOException
 	{
@@ -115,29 +103,6 @@ public class OverwatchHighlight
 		return title;
 	}
 	
-	public Image getThumbnail()
-	{
-		return thumbnail;
-	}
-	
-	public boolean loadThumbnail(int width, int height)
-	{
-		if(thumbnail==null)
-		{
-			try
-			{
-				thumbnail = extractThumbnail(width, height);
-				logger.debug("Loaded thumbnail for hightlight \""+getTitle()+"\" from file \""+getFile().getAbsolutePath()+"\"");
-				return true;
-			}
-			catch(Exception e)
-			{
-				logger.error("Cannot load thumbnail for highlight \""+getTitle()+"\" from file \""+getFile().getAbsolutePath()+"\"", e);
-			}
-		}
-		return false;
-	}
-	
 	private String extractTitle() throws IOException
 	{
 		MovieBox movie = MP4Util.parseMovie(file);
@@ -146,33 +111,6 @@ public class OverwatchHighlight
 		IListBox ilst = NodeBox.findFirst(meta, IListBox.class, "ilst");
 		DataBox data = (DataBox) ilst.getValues().values().iterator().next().get(0);
 		return new String(data.getData(), StandardCharsets.UTF_8);
-	}
-	
-	private Image extractThumbnail(int width, int height)
-	{
-		try
-		{
-	        FFmpegFrameGrabber frameGrabber = new FFmpegFrameGrabber(file);
-
-	        frameGrabber.setImageWidth(width);
-	        frameGrabber.setImageHeight(height);
-	        
-	        frameGrabber.start();
-	        
-	        frameGrabber.setFrameNumber((int) (4*frameGrabber.getFrameRate()));
-	        
-	        Frame grabKeyFrame = frameGrabber.grabImage();
-	        Java2DFrameConverter java2DFrameConverter = new Java2DFrameConverter();
-	        BufferedImage bufferedImage = java2DFrameConverter.convert(grabKeyFrame);
-	        frameGrabber.stop();
-	        frameGrabber.close();
-
-			return bufferedImage;
-	    }
-		catch (Exception e)
-		{
-	        throw new RuntimeException(e);
-	    }
 	}
 
 	public Hero getHero()
