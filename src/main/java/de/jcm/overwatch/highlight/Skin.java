@@ -60,7 +60,7 @@ public enum Skin
 	MOIRA_HOLLY(16886, Hero.MOIRA, "Holly", Category.WINTER_WONDERLAND, Rarity.EPIC),
 	MOIRA_OASIS(7234, Hero.MOIRA, "Oasis", Category.OVERWATCH, Rarity.LEGENDARY),
 	MOIRA_BANSHEE(8490, Hero.MOIRA, "Banshee", Category.HALLOWEEN_TERROR, Rarity.LEGENDARY),
-	MOIRE_BLACKWATCH(7285, Hero.MOIRA, "Blackwatch", Category.ARCHIVES, Rarity.LEGENDARY),
+	MOIRA_BLACKWATCH(7285, Hero.MOIRA, "Blackwatch", Category.ARCHIVES, Rarity.LEGENDARY),
 	MOIRA_SCIENTIST(11378, Hero.MOIRA, "Scientist", Category.ARCHIVES, Rarity.LEGENDARY),
 
 	ORISA_OR15(7061, Hero.ORISA, "OR15", Category.OVERWATCH, Rarity.EPIC),
